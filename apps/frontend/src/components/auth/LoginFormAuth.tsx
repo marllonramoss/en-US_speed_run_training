@@ -1,21 +1,18 @@
 import React from "react";
-import InputForm from "./InputForm";
 
 const LoginFormAuth = () => {
   return (
     <div
-      className={`
-    bg-zinc-800
-    flex flex-col p-4 gap-5 justify-center items-center rounded-lg
-    w-72
-
-    `}
+      className="
+    w-[631px] h-[748px]
+    bg-[#18181B]
+    "
     >
-      <span className="text-3xl font-bold">Login</span>
-
-      <div className="flex flex-col gap-5">
-        <InputForm title="E-mail" />
-        <InputForm title="Password" />
+      <div>
+        <div className="bg-green-600 rounded-full w-20 h-20" />
+        <span className="-tracking-wide">
+          S<span className="text-red-800 font-bold">3</span>CURITY{" "}
+        </span>
       </div>
     </div>
   );
