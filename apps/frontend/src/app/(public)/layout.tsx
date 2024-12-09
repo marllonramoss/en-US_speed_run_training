@@ -5,7 +5,7 @@ interface layoutProps {
 }
 
 const layout = ({ children }: layoutProps) => {
-  return <div className="boxedLayout">{children}</div>;
+  return <div className="layoutBoxed">{children}</div>;
 };
 
 export default layout;

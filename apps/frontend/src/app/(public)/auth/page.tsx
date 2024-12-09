@@ -1,10 +1,10 @@
-import LoginFormAuth from "@/components/auth/LoginFormAuth";
+import FormLogin from "@/components/auth/FormLogin";
 import React from "react";
 
 const page = () => {
   return (
     <div className="flex justify-center items-center h-screen">
-      <LoginFormAuth />
+      <FormLogin />
     </div>
   );
 };
