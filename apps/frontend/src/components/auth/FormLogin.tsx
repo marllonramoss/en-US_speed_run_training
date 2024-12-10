@@ -1,12 +1,20 @@
+"use client";
+
 import React from "react";
 import Logo from "../shared/Logo";
 import LogoLogin from "../shared/LogoLogin";
-import InputForm from "./InputForm";
+import InputForm from "./InputLoginForm";
 import Button from "./Button";
 import GoogleIcon from "@mui/icons-material/Google";
 import Link from "next/link";
 
 const FormLogin = () => {
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
+
+  const changeShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="flex flex-col justify-start items-center  w-[631px] h-[748px] bg-bg-2-lightBlack rounded-xl p-8 ">
       <LogoLogin />
@@ -14,11 +22,18 @@ const FormLogin = () => {
         <span className="font-bold text-2xl">Entre com sua conta</span>
         <div className=" w-[494px] flex flex-col gap-2">
           <InputForm texto="Email" type="email" />
-          <InputForm texto="Senha" type="password" />
+          <InputForm
+            texto="Senha"
+            type="password"
+            showPassword={showPassword}
+            changeShowPassword={changeShowPassword}
+          />
         </div>
         <div className="flex justify-end  flex-1 w-full h-full">
           <Link href={"#"}>
-            <span className="text-[#979797]">Esqueceu a senha?</span>
+            <span className="text-[#979797] hover:brightness-150">
+              Esqueceu a senha?
+            </span>
           </Link>
         </div>
         <Button cor="verde">Login</Button>
