@@ -5,9 +5,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+//PRECISA COLOCAR COM .ENV AO INVES DE HARDCODED COMO ESTA SENDO FEITO AQUI.
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db"
 }
 
 model User {
@@ -18,3 +19,5 @@ model User {
   createdAt DateTime @default(now()) // Data de criação do registro
   updatedAt DateTime @updatedAt // Data da última atualização
 }
+
+// url      = env("DATABASE_URL")
