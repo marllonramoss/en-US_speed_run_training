@@ -5,27 +5,29 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from 'src/db/prisma.service';
 
-export type User = {
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-    createdAt: Date;
-    updatedAt: Date;
-};
+import { PortRepo, User } from '@trainingapp/core';
 
 @Injectable()
-export class RepositorioUsuario {
+export class RepositorioUsuario implements PortRepo {
     constructor(private readonly prisma: PrismaService) {}
+
+    async findByEmail(email: string): Promise<Omit<User, 'password'>> {
+        const existingUser = await this.prisma.user.findUnique({
+            where: { email },
+        });
+        return existingUser;
+    }
+
+    // await this.prisma.user.findUnique({
+    //     where: {
+    //         email: data.email,
+    //     },
+    // });
 
     async create(
         data: Omit<User, 'id' | 'createdAt' | 'updatedAt'>,
     ): Promise<Omit<User, 'password'>> {
-        const existingUser = await this.prisma.user.findUnique({
-            where: {
-                email: data.email,
-            },
-        });
+        const existingUser = await this.findByEmail(data.email);
         if (existingUser) {
             throw new ConflictException('Email ja registrado');
         }
