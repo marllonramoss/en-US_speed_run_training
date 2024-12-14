@@ -7,6 +7,14 @@ Content-Type: application/json
 
 {
     "name": "John Doe",
-    "email": "john.doe11@example.com",
+    "email": "john.doe124@example.com",
+    "password": "abc"
+}
+### Testar Login
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+    "email": "john.doe12@example.com",
     "password": "abc"
 }

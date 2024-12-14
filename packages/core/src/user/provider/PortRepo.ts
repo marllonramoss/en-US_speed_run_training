@@ -8,5 +8,5 @@ export default interface RepositorioUsuario {
         id: number,
         data: Omit<User, 'id' | 'createdAt' | 'updatedAt'>,
     ): Promise<Omit<User, 'password'>>;
-    findByEmail(email: string): Promise<Omit<User, 'password'> | null>;
+    findByEmail(email: string): Promise<User | null>;
 }

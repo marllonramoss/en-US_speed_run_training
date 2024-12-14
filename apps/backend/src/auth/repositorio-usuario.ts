@@ -11,9 +11,17 @@ import { PortRepo, User } from '@trainingapp/core';
 export class RepositorioUsuario implements PortRepo {
     constructor(private readonly prisma: PrismaService) {}
 
-    async findByEmail(email: string): Promise<Omit<User, 'password'>> {
+    async findByEmail(email: string): Promise<User> {
         const existingUser = await this.prisma.user.findUnique({
             where: { email },
+            select: {
+                id: true,
+                email: true,
+                name: true,
+                createdAt: true,
+                updatedAt: true,
+                password: true,
+            },
         });
         return existingUser;
     }
