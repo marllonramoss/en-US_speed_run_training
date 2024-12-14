@@ -37,7 +37,7 @@ export class AuthController {
 
             return createdUser;
         } catch (error) {
-            if (error instanceof ConflictException) {
+            if ((error.message = 'Email já registrado')) {
                 throw new ConflictException('E-mail ja esta em uso');
             }
 
