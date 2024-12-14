@@ -1,5 +1,6 @@
 import { User } from './model/User';
 import PortRepo from './provider/PortRepo';
-import RegistrarUsuario from './service/RegistrarUsuario';
-export type { User, PortRepo };
-export { RegistrarUsuario };
+import CreateUserUseCase from './service/createUserUseCase';
+import PortPassword from './provider/PortPassword';
+export type { User, PortRepo, PortPassword };
+export { CreateUserUseCase };
