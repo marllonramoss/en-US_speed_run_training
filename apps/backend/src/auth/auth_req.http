@@ -7,14 +7,19 @@ Content-Type: application/json
 
 {
     "name": "John Doe",
-    "email": "john.doe124@example.com",
-    "password": "abc"
+    "email": "joco@example.com",
+    "password": "joco"
 }
 ### Testar Login
 POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-    "email": "john.doe12@example.com",
-    "password": "abc"
+    "email": "joco@example.com",
+    "password": "joco"
 }
+
+### Testar rota protegida
+
+POST http://localhost:4000/auth/protected-route
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvY29AZXhhbXBsZS5jb20iLCJzdWIiOjEzLCJpYXQiOjE3MzQyOTU1MDksImV4cCI6MTczNDI5OTEwOX0.MwUCj5_plGReX5XxMQhlcv6ePGAc-NA7q_pB7ccBFFU
