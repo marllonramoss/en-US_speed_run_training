@@ -20,10 +20,6 @@ const InputLoginForm = ({
   changeShowPassword,
   ...props
 }: InputFormProps) => {
-  useEffect(() => {
-    console.log("showPassword updated:", showPassword);
-  }, [showPassword]);
-
   return (
     <div className="flex flex-col gap-2">
       <span className="text-[18px]">{texto}</span>
@@ -33,12 +29,12 @@ const InputLoginForm = ({
           type={type === "password" && showPassword ? "text" : type}
           className={`
         ${className ?? ""}
-        bg-bg-1-black border border-border-1-gray h-[52px] rounded-xl flex-1 px-2 
+        bg-bg-1-black border border-border-1-gray h-[52px] rounded-xl flex-1 px-2 focus:outline-none
         `}
         />
         {type === "password" && (
           <button
-            className="absolute right-1 top-1/2 -translate-y-1/2  w-12 h-12 bg-bg-1-black"
+            className="absolute right-1 top-1/2 -translate-y-1/2  w-12 h-12 bg-transparent"
             onClick={changeShowPassword}
           >
             {showPassword ? (
@@ -49,7 +45,7 @@ const InputLoginForm = ({
           </button>
         )}
         {type === "email" && (
-          <button className="absolute right-1 top-1/2 -translate-y-1/2  w-12 h-12 bg-bg-1-black cursor-default">
+          <button className="absolute right-1 top-1/2 -translate-y-1/2  w-12 h-12 bg-transparent cursor-default">
             <MailOutlineIcon className="text-[#A1A1AA]" />
           </button>
         )}

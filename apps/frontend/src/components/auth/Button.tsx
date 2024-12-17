@@ -25,8 +25,8 @@ const Button = ({
       {...props}
       className={`
     w-full h-[52px] ${corClasse} rounded-xl font-bold text-xl
-
     `}
+      onClick={onClick}
     >
       {children}
     </button>

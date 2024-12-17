@@ -21,6 +21,7 @@ export class RepositorioUsuario implements PortRepo {
                 createdAt: true,
                 updatedAt: true,
                 password: true,
+                tell: true,
             },
         });
         return existingUser;
@@ -46,6 +47,7 @@ export class RepositorioUsuario implements PortRepo {
                 password: data.password,
                 createdAt: new Date(),
                 updatedAt: new Date(),
+                tell: data.tell,
             },
         });
         const UserWithoutPassword = {

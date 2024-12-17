@@ -18,6 +18,7 @@ model User {
   password  String // Senha do usuário (preferencialmente hash)
   createdAt DateTime @default(now()) // Data de criação do registro
   updatedAt DateTime @updatedAt // Data da última atualização
+  tell      String   @default("000000000") // Telefone do usuário
 }
 
 // url      = env("DATABASE_URL")
