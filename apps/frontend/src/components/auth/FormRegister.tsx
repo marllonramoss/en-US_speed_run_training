@@ -18,7 +18,18 @@ const FormRegister = ({ setActiveForm }: FormRegisterProps) => {
     password,
     setPassword,
     handleRegister,
+    confirmPassword,
+    setConfirmPassword,
   } = useAuth();
+
+  const handleClick = () => {
+    if (password === confirmPassword) {
+      handleRegister(nome, email, password);
+    } else {
+      alert("As senhas não coincidem!");
+      console.log("As senhas não coincidem!");
+    }
+  };
 
   return (
     <div className="bg-[#18181B] w-[631px] h-[776px] justify-center items-center flex flex-col gap-5 rounded-lg">
@@ -45,17 +56,16 @@ const FormRegister = ({ setActiveForm }: FormRegisterProps) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <InputRegisterForm label="Confirme a Senha" type="password" />
+        <InputRegisterForm
+          label="Confirme a Senha"
+          type="password"
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
         <InputRegisterForm label="Telefone" type="tel" />
       </div>
 
       <div className="w-[494px] h-[103px] flex flex-col gap-5 justify-center items-center">
-        <Button
-          cor="verde"
-          onClick={() =>
-            handleRegister("TOLO5", "amor23rrd2SZzz@gmail.com", "TOLO")
-          }
-        >
+        <Button cor="verde" onClick={() => handleClick()}>
           Cadastrar-se
         </Button>
         <span>

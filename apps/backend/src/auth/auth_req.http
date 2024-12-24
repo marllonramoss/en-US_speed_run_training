@@ -6,18 +6,18 @@ POST http://localhost:4000/auth/registrar
 Content-Type: application/json
 
 {
-    "name": "amor",
-    "email": "amor23rrd2SZS@gmail.com",
-    "password": "amor",
-    "tell": "123456789"
+    "name": "winter",
+    "email": "winter15@gmail.com",
+    "password": "winter"
+    
 }
 ### Testar Login
 POST http://localhost:4000/auth/login
 Content-Type: application/json
 
 {
-    "email": "joco@example.com",
-    "password": "joco"
+    "email": "winter@gmail.com",
+    "password": "winter"
 }
 
 ### Testar rota protegida
